@@ -1,0 +1,28 @@
+<%
+// variable
+var ejsRoot = '../';
+var page = 'top';
+%>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <%- include(ejsRoot + 'inc/_meta', {data:data,meta:data[page]}); %>
+    <link href="/assets/css/top/style.css" rel="stylesheet" class="stylesheet">
+    <%- include(ejsRoot + 'inc/_script'); %>
+    <script type='text/javascript' src='/assets/js/main.js'></script>
+
+</head>
+<body id="<%- page %>" class="top" data-id="top">
+
+<div id="wrapper">
+    <div id="inner">
+
+        <%- include('./top/_section01', {data:data,page:page}); %>
+
+    </div>
+</div>
+
+<%- include(ejsRoot + 'parts/_common/_footer', {data:data,page:page}); %>
+
+</body>
+</html>

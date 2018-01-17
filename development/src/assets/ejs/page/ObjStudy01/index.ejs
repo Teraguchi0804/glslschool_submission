@@ -1,0 +1,27 @@
+<%
+// variable
+var ejsRoot = '../../';
+var page = 'objStudy01';
+%>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <%- include(ejsRoot + 'inc/_meta', {data:data,meta:data[page]}); %>
+    <%- include(ejsRoot + 'inc/_style'); %>
+    <link href="/assets/css/top/style.css" rel="stylesheet" class="stylesheet">
+    <%- include(ejsRoot + 'inc/_script'); %>
+    <script type='text/javascript' src='/assets/js/main.js'></script>
+
+</head>
+<body id="<%- page %>" class="<%- page %>" data-id="<%- page %>">
+
+<div id="wrapper">
+    <div id="inner">
+
+        <%- include('./_section01', {data:data,page:page}); %>
+
+    </div>
+</div>
+
+</body>
+</html>

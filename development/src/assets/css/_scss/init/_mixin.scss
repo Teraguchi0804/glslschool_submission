@@ -1,0 +1,274 @@
+/* --------------------------------------------------------------------------------
+*
+*   mixin
+*
+-------------------------------------------------------------------------------- */
+
+@mixin radius($size) {
+    @include border-radius($size + px);
+}		
+
+@mixin boxSize ($type: border-box) {
+    @include box-sizing(#{$type});
+}
+
+@mixin op ($val) {
+    @include opacity(#{$val});
+}
+
+@mixin fl($val){
+    float: left;
+    margin-right: $val;
+}
+
+@mixin posA($top,$left){
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+    // .sample{
+    //         @include posA(0,0);
+    // }
+@mixin box ($w,$h){
+    width: $w;
+    height: $h;
+    background-color: #000;
+}
+
+@mixin fz($size: 16) {
+    font-size: $size + px;
+    font-size: ($size / 10)  + rem;
+}
+
+@mixin lh($lh: 16,$size: $fontSize) {
+    line-height:$lh + px;
+    line-height:$lh / $size + rem;
+}
+
+@mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+     position: absolute;
+     top: $top;
+     right: $right;
+     bottom: $bottom;
+     left: $left;
+}	
+
+@mixin placeholder {
+    &:placeholder-shown {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        opacity: 1;
+        @content;
+    }
+    &::-moz-placeholder {
+        opacity: 1;
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+  /*
+  *
+  *   how to
+  *
+  */
+
+  // @include box-shadow(#000 1px 1px 1px 1px inset);
+  // @include text-shadow(#000 1px 1px 1px);
+  // @include background-size(100px 50px);
+
+  // 使い方
+  // @include box;
+  // @include box(content-box);
+
+/* --------------------------------------------------------------------------------
+*
+*   transform
+*
+-------------------------------------------------------------------------------- */
+     
+// @include transform(rotate(50) scale(1.2) translate(20px, 20px) skew(-20deg, -20deg));
+// @include transform(rotate(45deg));   
+// @include translate(20px, 20px);
+// @include rotate(50);
+// @include scale(50);
+// @include skew(-20deg, -20deg);
+    
+/* --------------------------------------------------------------------------------
+*
+*   transition
+*
+-------------------------------------------------------------------------------- */
+    
+// @include transition(width 2s linear 0.5s);
+
+// @include transition-property(width);
+// @include transition-duration(2s);
+// @include transition-timing-function(linear);
+// @include transition-delay(0.5s);
+
+/* --------------------------------------------------------------------------------
+*
+*   animation
+*
+-------------------------------------------------------------------------------- */
+    
+// animation
+@mixin keyframes($name) {
+  @-webkit-keyframes $name {
+    @content;
+  }
+  @-moz-keyframes $name {
+    @content;
+  } 
+  @keyframes $name {
+    @content;
+  }
+}
+
+	// #hoge{
+	//     @include animation(animationSample 1.2s ease 0.15s);   
+	// }
+	// @include keyframes(name){
+	//     0% {
+	//         opacity:0;
+	//     }
+	//     100% {
+	//         opacity:1;
+	//     }
+	// }
+	
+	// 補完(インターポレーション)：#{}
+	// Sassは補完を行うための構文として #{} を用意している。
+	// 変数に入った文字列は通常は値として認識されてエラーが出てしまうため、そのままだとプロパティの値にしか使用できないが、 シャープ記号を前に置いた波括弧 #{}と組み合わせることでセレクタやプロパティ名にも使うことができるようになる。
+
+/* --------------------------------------------------------------------------------
+*
+*   media query
+*
+-------------------------------------------------------------------------------- */
+
+@mixin media-max($media-width) {
+	@if $media-width == 'SP' {
+		@media only screen and (max-width: $maxBpSP) {
+			@content;
+		}
+	}
+  @else if $media-width == 'TAB' {
+      @media only screen and (max-width: $bpTAB) {
+          @content;
+      }
+  }
+	@else {
+		@media only screen and (max-width: $media-width) {
+			@content;
+		}
+	}
+}
+
+@mixin media-min($media-width) {
+	@if $media-width == 'SP' {
+		@media only screen and (min-width: $minBpSP) {
+			@content;
+		}
+	}
+  @else if $media-width == 'TAB' {
+      @media only screen and (min-width: $bpTAB) {
+          @content;
+      }
+  }
+	@else {
+		@media only screen and (min-width: $media-width) {
+			@content;
+		}
+	}
+}
+
+    /*
+    *
+    *   how to   
+    *
+    */
+      // #main {
+      // 	float: left;
+      // 	width: 610px;
+      // 	padding: 15px;
+      // 	background: #f1f1f1;
+      // 		@include media(TAB) {
+      // 			float: none;
+      // 			margin: 0 auto;
+      // 		}
+      // 		@include media(SP) {
+      // 			width: auto;
+      // 			margin: 0 10px;
+      // 		}
+      // }
+
+// $small:  "only screen and (max-width:" + $maxBpSP + ")";
+// $middle: "only screen and (min-width:" + $minBpSP + ") and (max-width:" + $bpTAB + ")";
+// $large:  "only screen and (min-width:" + $bpTAB + ")";
+
+// @media #{$small} {
+//     //640px以下
+// }
+
+// @media #{$middle} {
+//     //641px〜959pxまで
+// }
+
+// @media #{$large} {
+//     //960px以上
+// }
+
+/* --------------------------------------------------------------------------------
+*
+*   portrait,landscape
+*
+-------------------------------------------------------------------------------- */
+
+@mixin land {
+	@media all and (orientation:landscape) {
+		@content;
+	}
+}
+
+@mixin port {
+	@media all and (orientation:portrait) {
+		@content;
+	}
+}
+
+  /*
+  *
+  *   how to
+  *
+  */
+  // .item {
+  // 	width: 50%;
+  // 	@include port {
+  // 		width: 100%;
+  // 	}
+  // 	@include land {
+  // 		width: 25%;
+  // 	}
+  // 	.image {
+  // 		@include port {
+  // 			width: 150px;
+  // 		}
+  // 		@include land {
+  // 			float: left;
+  // 		}
+  // 	}
+  // }
+  
+
+/* --------------------------------------------------------------------------------
+*
+*   function
+*
+-------------------------------------------------------------------------------- */

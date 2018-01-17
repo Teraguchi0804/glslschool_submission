@@ -1,0 +1,49 @@
+{
+  "description": "desctiption",
+  "keyword": "keyword",
+  "ogpImgPath": "",
+  "top": {
+    "description": "",
+    "fb": {
+      "des": "",
+      "img": "",
+      "siteName": "",
+      "tit": "",
+      "type": "website",
+      "url": ""
+    },
+    "keyword": "",
+    "title": "threeSketch",
+    "tw": {
+      "card": "summary_large_image",
+      "creator": "",
+      "des": "",
+      "img": "",
+      "siteName": "",
+      "tit": "",
+      "url": ""
+    }
+  },
+  "objStudy01": {
+    "description": "",
+    "fb": {
+      "des": "",
+      "img": "",
+      "siteName": "",
+      "tit": "",
+      "type": "website",
+      "url": ""
+    },
+    "keyword": "",
+    "title": "objStudy01 | threeSketch",
+    "tw": {
+      "card": "summary_large_image",
+      "creator": "",
+      "des": "",
+      "img": "",
+      "siteName": "",
+      "tit": "",
+      "url": ""
+    }
+  }
+}

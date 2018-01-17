@@ -1,0 +1,147 @@
+/* --------------------------------------------------------------------------------
+*
+*   common
+*
+-------------------------------------------------------------------------------- */
+/*
+*
+*   how to
+*
+*/
+// .selector {
+//   @extend %center;
+// }
+
+
+%center {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+}
+	
+%cf {
+    zoom:1;
+    &:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
+// %hover {
+// 	&:hover{ 
+// 	    background: rgba(#000,0.8);
+// 	}
+// }
+%hover {
+	&:hover{ 
+	    transform: scale(1.2);
+	}
+}
+
+%justify {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+%overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.6);
+}
+
+%box {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0,0,0,1);
+}
+
+%width {
+  width: 950px;
+  margin: 0 auto;
+}
+
+%text {
+  line-height: 24px;
+  letter-spacing: .1em;
+
+  @include fz(14);
+}
+
+%tit {
+  @include fz(14);
+  font-weight: bold;
+  letter-spacing: 0em;
+}
+
+
+/*
+*
+*   font
+*
+*/
+
+%heading {
+  @include fz(14);
+  font-family: RodinPro B,HelveticaNeueLTStd Bd;
+  color: #fff;
+}
+%heading_ad {
+  line-height: 22px;
+  letter-spacing: .1em;
+}
+
+%footerText {
+  @include fz(12);
+  color: #fff;  
+}
+       
+%subMenuText {
+  @include fz(12);
+  color: #1c426d;
+}
+
+%copy {
+  @include fz(10);
+  color: #999;
+}
+
+%para_link {
+  @include fz(14);
+  color: #1c426d;
+}
+
+%para {
+  @include fz(14);
+  color: #000;
+}
+
+%para_ad {
+  line-height: 24px;
+  letter-spacing: .1em;
+}
+
+/*
+ *
+ *   web font   
+ *
+ */ 
+%noto {
+  font-family: 'Noto Sans Japanese';
+  // font-weight: 900;
+}
+
+%robot {
+  font-family: 'Roboto', sans-serif;
+}
+
+%aleg {
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+%alegsc {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
