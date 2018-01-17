@@ -213,7 +213,7 @@ export default class ObjStudy01 extends Entry {
 		// let texture = textureLoader.load( '../../../../assets/resource/img/Banana.jpg' );
 
 		this.loader = new THREE.OBJLoader( manager );
-		this.loader.load( '../../../../assets/resource/model/banana03.obj', function ( object ) {
+		this.loader.load( 'assets/resource/model/banana03.obj', function ( object ) {
 			object.traverse( function ( child ) {
 
 				let material = new THREE.MeshPhongMaterial({
