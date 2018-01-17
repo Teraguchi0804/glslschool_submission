@@ -43,7 +43,7 @@ export default class Main {
 
       case 'top':
 
-        new DisplayTop();
+        new DisplayObjStudy01();
 
         break;
 
